@@ -8,7 +8,9 @@
 <body>
     
     <h1>Proyecto {{ nombre }}</h1>
-    <p>Esto es una prueba 🔥</p>
+
+    <p><a href="{% url 'cliente:index' %}">Ir a Cliente</a></p>
+    <p><a href="{% url 'admin:index' %}">Administración</a></p>
 
 </body>
 </html>
