@@ -31,3 +31,7 @@ específicas para un proyecto en particular, sin afectar al sistema global de Py
 - `cd project`
 - `django-admin startproject config .`
 - `python manage.py runserver`
+- `python manage.py startapp cliente`
+- `python manage.py makemigrations`
+- `python manage.py migrate`
+- `python manage.py createsuperuser`
