@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coderhouse</title>
-</head>
-<body>
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Coderhouse | Inicio    
+{% endblock title %}
     
-    <h1>Proyecto {{ nombre }}</h1>
 
-    <p><a href="{% url 'cliente:index' %}">Ir a Cliente</a></p>
-    <p><a href="{% url 'admin:index' %}">Administración</a></p>
+{% block content %}
+    <h1>Proyecto Final</h1>
+    <h2>INICIO</h2>
 
-</body>
-</html>
+    <button><a href="{% url 'cliente:index' %}">Cliente</a></button>
+    <button><a href="{% url 'admin:index' %}">Administración</a></button>
+{% endblock content %}

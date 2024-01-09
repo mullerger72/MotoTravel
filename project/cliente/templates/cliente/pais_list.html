@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    
+<h2>CLIENTE</h2>
+<h3>Países: Lista</h3>
+
+    <ul>
+        {% for pais in paises %}
+            <li> {{ pais.nombre }} </li>
+            {% endfor %}
+        </ul>
+        
+    <button><a href="{% url 'cliente:index' %}">Atrás</a></button>    
+
+{% endblock content %}

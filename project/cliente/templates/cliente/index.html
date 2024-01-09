@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coderhouse</title>
-</head>
-<body>
-    <h1>Cliente</h1>
+{% extends 'core/base.html' %}
 
-    <ul>
-        {% for cliente in clientes %}
-            <li>{{ cliente.nombre }} {{ cliente.apellido }}</li>
-        {% endfor %}
-    </ul>
+{% block content %}
+    
+<h2>CLIENTE</h2>
 
-    <button><a href="{% url 'core:index' %}">Inicio</a></button>    
-
-</body>
-</html>
+    <div>
+        <button><a href="{% url 'cliente:pais_list' %}">Lista de países</a></button>
+        <button><a href="{% url 'cliente:cliente_list' %}">Lista de clientes</a></button>
+    </div>
+    <div>
+        <button><a href="{% url 'core:index' %}">Inicio</a></button>    
+    </div>
+    
+{% endblock content %}
