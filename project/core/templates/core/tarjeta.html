@@ -2,8 +2,11 @@
     <div class="card h-100">
         <div class="card-body">
             <h2 class="card-title">{{ titulo }}</h2>
+                <img src="{{ imagen_url }}" class="card-img-top">
             <p class="card-text">{{ texto }}</p>
         </div>
-        <div class="card-footer"><a class="btn btn-primary btn-sm" href="#!">Ver</a></div>
+        <div class="card-footer d-flex justify-content-center">
+            <a class="btn btn-primary btn-sm" href="#!">Ver</a>
+        </div>
     </div>
 </div>
