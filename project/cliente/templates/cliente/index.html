@@ -4,18 +4,19 @@
     Cliente | Inicio
 {% endblock title %}
 
-
 {% block content %}
-    
-<h2>CLIENTE</h2>
+  <div class="container">
+    <h1 class="mt-4">Clientes</h1>
 
-    <div>
-        <button><a href="{% url 'cliente:pais_list' %}">Lista de países</a></button>
-        <button><a href="{% url 'cliente:cliente_list' %}">Lista de clientes</a></button>
-        <button><a href="{% url 'cliente:cliente_create' %}">Crear cliente</a></button>
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">Clientes</h5>
+        <div class="d-flex justify-content-center gap-4">
+          <a href="{% url 'cliente:pais_list' %} " class="btn btn-primary w-50">Listar país de origen de clientes</a>
+          <a href="{% url 'cliente:cliente_list' %} " class="btn btn-primary w-50">Listar clientes</a>
+          <a href="{% url 'cliente:cliente_create' %} " class="btn btn-primary w-50">Crear cliente</a>
+        </div>
+      </div>
     </div>
-    <div>
-        <button><a href="{% url 'core:index' %}">Inicio</a></button>    
-    </div>
-    
+  </div>
 {% endblock content %}

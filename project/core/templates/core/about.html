@@ -1,10 +1,16 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
+  <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="text-center">
+      <h1 class="display-4">Bienvenido a nuestra página</h1>
+      <p class="lead">Somos una empresa dedicada a brindar soluciones tecnológicas innovadoras. Nuestro objetivo es proporcionar herramientas y servicios que impulsen el desarrollo y la eficiencia en el mundo de la programación.</p>
 
-    <div class="text-center display-1 mb-5 mt-3" style="font-family: monospace">
-        Somos un equipo de programadores de Python
+      <h5>Nuestro Equipo</h5>
+      <ul class="list-group">
+        <li class="list-group-item">Juan - CEO</li>
+        <li class="list-group-item">Pepe - CTO</li>
+      </ul>
     </div>
-
-
+  </div>
 {% endblock content %}
