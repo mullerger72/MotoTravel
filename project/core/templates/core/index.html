@@ -1,4 +1,6 @@
 {% extends 'core/base.html' %}
+{% load static %}
+
 
 {% block title %}
     Coderhouse | Inicio    
@@ -11,4 +13,25 @@
 
     <button><a href="{% url 'cliente:index' %}">Cliente</a></button>
     <button><a href="{% url 'admin:index' %}">Administración</a></button>
+
+    <!-- Heading Row-->
+    <div class="row gx-4 gx-lg-5 align-items-center my-5">
+        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'core/img/caja.jpg' %}" alt="..." /></div>
+        <div class="col-lg-5">
+            <h1 class="font-weight-light">La Caja de Pandora</h1>
+            <p>La Caja de Pandora es un negocio único que te brindará nuevas oportunidades</p>
+            <a class="btn btn-success" href="https:/wa.me/5492611111111" target="_blank">WhatsApp</a>
+        </div>
+    </div>
+    <!-- Call to Action-->
+    <div class="card text-white bg-secondary my-5 py-4 text-center">
+        <div class="card-body"><p class="text-white m-0">Esta tarjeta de llamada a la acción es el lugar perfecto para mostrar información importante o mostrar un eslogan ingenioso que resalte nuestra increíble colección de moda y estilo. ¡Descubre las últimas tendencias en moda y encuentra prendas únicas que te harán lucir a la moda en cualquier ocasión!</p></div>
+    </div>
+    <!-- Content Row-->
+    <div class="row gx-4 gx-lg-5">
+
+        {% include 'core/tarjeta.html' with titulo="Tarjeta" texto="Texto de la tarjeta" %}       
+        {% include 'core/tarjeta.html' with titulo="Tarjeta 2" %}       
+        {% include 'core/tarjeta.html' with texto="Texto de la tarjeta" %}       
+    </div>
 {% endblock content %}
