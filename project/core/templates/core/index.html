@@ -15,21 +15,21 @@
     </div>
     <!-- Heading Row-->
     <div class="row gx-4 gx-lg-5 align-items-center my-5">
-        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'core/img/caja.jpg' %}" alt="..." /></div>
+        <div class="col-lg-7"><img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'core/img/kawa.jpeg' %}" alt="..." /></div>
         <div class="col-lg-5">
-            <h1 class="font-weight-light">La Caja de Pandora</h1>
-            <p>La Caja de Pandora es un negocio único que te brindará nuevas oportunidades</p>
+            <h1 class="font-weight-light">Moto Travel</h1>
+            <p>Moto Travel es una App que permite llevar vitácoras de viajes y compartiralas con otros usuarios</p>
             <a class="btn btn-success" href="https:/wa.me/5492611111111" target="_blank">WhatsApp</a>
         </div>
     </div>
 
     <div class="card text-white bg-secondary my-5 py-4 text-center">
-        <div class="card-body"><p class="text-white m-0">Esta tarjeta de llamada a la acción es el lugar perfecto para mostrar información importante o mostrar un eslogan ingenioso que resalte nuestra increíble colección de moda y estilo. ¡Descubre las últimas tendencias en moda y encuentra prendas únicas que te harán lucir a la moda en cualquier ocasión!</p></div>
+        <div class="card-body"><p class="text-white m-0">Encontrá toda la información que necesitás para armar tu próximo viaje en moto.</p></div>
     </div>
 
     <div class="row gx-4 gx-lg-5">
-        {% include 'core/tarjeta.html' with titulo="Tarjeta" texto="Texto de la tarjeta" %}       
-        {% include 'core/tarjeta.html' with titulo="Tarjeta 2" %}       
-        {% include 'core/tarjeta.html' with titulo="Ropa" imagen_url="https://w7.pngwing.com/pngs/861/112/png-transparent-figure-drawing-clothing-dress-art-clothes-purple-fashion-color.png" texto="Texto de la tarjeta" %}       
+        {% include 'core/tarjeta.html' with titulo="Destinos" imagen_url="static/core/img/lanin2.jpeg" texto="Consultá acá los destinos mas elegidos" link_tarjeta="https://www.google.com/search?client=firefox-b-lm&q=destinos+para+viajar+en+moto" %}
+        {% include 'core/tarjeta.html' with titulo="Clima" imagen_url="static/core/img/clima.jpeg" texto="Pronostico del tiempo" link_tarjeta="https://www.google.com/search?client=firefox-b-lm&q=pronostico+del+tiempo" %}
+        {% include 'core/tarjeta.html' with titulo="Accesorios" imagen_url="https://f.hubspotusercontent30.net/hubfs/3410681/00_Demone%20Rosso/caschi%20Rossi/1024x768-Casco_Valentino_2002.png" texto="Todo para viajar" link_tarjeta="https://listado.mercadolibre.com.ar/accesorios-para-viajar-en-moto#D[A:accesorios%20para%20viajar%20en%20moto]" %}
     </div>
 {% endblock content %}
