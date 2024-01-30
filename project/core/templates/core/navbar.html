@@ -6,8 +6,19 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link {% if request.path == '/' %} active {% endif %}" href="{% url 'core:index' %}">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link {% if '/about/' in request.path %} active {% endif %}" href="{% url 'core:about' %}">Nosotros</a></li>
-                <li class="nav-item"><a class="nav-link {% if '/clientes/' in request.path %} active {% endif %} " href="{% url 'cliente:index' %}">Cliente</a></li>
-                <li class="nav-item"><a class="nav-link {% if '/productos/' in request.path %} active {% endif %} " href="{% url 'producto:index' %}">Producto</a></li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link {% if '/clientes/' in request.path %} active {% endif %} " href="{% url 'cliente:index' %}">Cliente</a></li>
+                    <li class="nav-item"><a class="nav-link {% if '/productos/' in request.path %} active {% endif %} " href="{% url 'producto:index' %}">Producto</a></li>
+                    <li class="nav-item"><a class="nav-link text-bg-info">{{ user.username }}</a></li>
+                    <li class="nav-item">
+                        <form action="{% url 'core:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-dark">Logout</button>
+                        </form>
+                    </li>
+                {% else %}
+                    <li class="nav-item"><a class="nav-link {% if '/login/' in request.path %} active {% endif %} " href="{% url 'core:login' %}">Login</a></li>
+                {% endif %}
             </ul>
         </div>
     </div>
