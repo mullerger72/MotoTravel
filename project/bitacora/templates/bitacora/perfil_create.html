@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+
+{% block content %}
+    <h2>PERFIL</h2>
+    <h3>Perfil: Crear</h3>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Guardar</button>
+    </form>
+
+    <button><a href="{% url 'bitacora:index' %}">Atrás</a></button>    
+
+{% endblock content %}

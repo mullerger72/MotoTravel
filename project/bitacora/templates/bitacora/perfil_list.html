@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+
+
+{% block content %}
+    <h2>PERFIL</h2>
+    <h3>Perfil: Lista</h3>
+
+    <table border="1">
+        <thead>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Moto</th>
+            <th>Lugar de Residencia</th>
+        </thead>
+        <tbody>
+            {% for perfil in perfiles %}
+                <tr>
+                    <td>{{ perfil.nombre }}</td>
+                    <td>{{ perfil.apellido }}</td>
+                    <td>{{ perfil.moto }}</td>
+                    {% if perfil.nacimiento %}
+                        <td>{{ perfil.nacimiento }}</td>
+                    {% else %}
+                        <td>Sin registro</td>
+                    {% endif %}
+                </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+    <button><a href="{% url 'bitacora:index' %}">Atrás</a></button>    
+{% endblock content %}

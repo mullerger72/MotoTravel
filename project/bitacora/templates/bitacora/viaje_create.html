@@ -2,16 +2,16 @@
 
 
 {% block content %}
-    <h2>CLIENTE</h2>
-    <h3>Cliente: Crear</h3>
+    <h2>VIAJE</h2>
+    <h3>Viaje: Crear</h3>
 
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-
+        {{ user.username }}
         <button type="submit">Guardar</button>
     </form>
 
-    <button><a href="{% url 'cliente:index' %}">Atrás</a></button>    
+    <button><a href="{% url 'bitacora:index' %}">Atrás</a></button>    
 
 {% endblock content %}

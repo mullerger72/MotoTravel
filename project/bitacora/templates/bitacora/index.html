@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Bitacora | Inicio
+{% endblock title %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="mt-4">Bitacora</h1>
+
+    <div class="card text-center">
+      <div class="card-body">
+        <h5 class="card-title">Bitacora</h5>
+        <div class="d-flex justify-content-center gap-4">
+          <a href="{% url 'bitacora:pais_list' %} " class="btn btn-primary w-50">Listar país de origen</a>
+          <a href="{% url 'bitacora:perfil_list' %} " class="btn btn-primary w-50">Listar Perfiles</a>
+          <a href="{% url 'bitacora:perfil_create' %} " class="btn btn-primary w-50">Crear Perfil</a>
+          <a href="{% url 'bitacora:viaje_list' %} " class="btn btn-primary w-50">Listar Viajes</a>
+          <a href="{% url 'bitacora:viaje_create' %} " class="btn btn-primary w-50">Crear Viaje</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock content %}

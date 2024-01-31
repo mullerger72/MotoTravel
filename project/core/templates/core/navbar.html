@@ -7,9 +7,8 @@
                 <li class="nav-item"><a class="nav-link {% if request.path == '/' %} active {% endif %}" href="{% url 'core:index' %}">Inicio</a></li>
                 <li class="nav-item"><a class="nav-link {% if '/about/' in request.path %} active {% endif %}" href="{% url 'core:about' %}">Nosotros</a></li>
                 {% if user.is_authenticated %}
-                    <li class="nav-item"><a class="nav-link {% if '/clientes/' in request.path %} active {% endif %} " href="{% url 'cliente:index' %}">Cliente</a></li>
-                    <li class="nav-item"><a class="nav-link {% if '/productos/' in request.path %} active {% endif %} " href="{% url 'producto:index' %}">Producto</a></li>
-                    <li class="nav-item"><a class="nav-link text-bg-info">{{ user.username }}</a></li>
+                    <li class="nav-item"><a class="nav-link {% if '/bitacora/' in request.path %} active {% endif %} " href="{% url 'bitacora:index' %}">Bitacora</a></li>
+                    <li class="nav-item"><a class="nav-link text-bg-info">{{ user.username }} - {{ user.id }}</a></li>
                     <li class="nav-item">
                         <form action="{% url 'core:logout' %}" method="post">
                             {% csrf_token %}
