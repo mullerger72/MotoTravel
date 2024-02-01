@@ -37,18 +37,18 @@ def perfil_list(request):
     return render(request, "bitacora/perfil_list.html", context)
 
 
-def perfil_create(request):
+def perfil_create(request, id):
+    perfil_update = models.Perfil.objects.get(id=id)
     if request.method == "POST":
-        form = forms.PerfilForm(request.POST)
+        form = forms.PerfilForm(request.POST, instance=perfil_update)
         if form.is_valid():
             perfil = form.save(commit=False)
             perfil.user_id = request.user.id
-            #perfil.moto = "Moto Hardcodeada"
+            #perfil.moto = perfil_update.apellido
             #form.save()
             perfil.save()
             return redirect("bitacora:perfil_list")
     else:
-        form = forms.PerfilForm()
-        form.moto = "Moto Hardcodeada 2"
+        form = forms.PerfilForm(instance=perfil_update)
     return render(request, "bitacora/perfil_create.html", {"form": form})
 
