@@ -25,13 +25,14 @@ def viaje_create(request):
         if form.is_valid():
             form.save()
             return redirect("bitacora:viaje_list")
-    else:  # if request.method == "GET":
+    else:
         form = forms.ViajeForm()
     return render(request, "bitacora/viaje_create.html", {"form": form})
 
 
 def perfil_list(request):
-    perfiles = models.Perfil.objects.all()
+    #perfiles = models.Perfil.objects.all()
+    perfiles = models.Perfil.objects.filter(user_id=request.user.id)
     context = {"perfiles": perfiles}
     return render(request, "bitacora/perfil_list.html", context)
 
@@ -40,9 +41,14 @@ def perfil_create(request):
     if request.method == "POST":
         form = forms.PerfilForm(request.POST)
         if form.is_valid():
-            form.save()
+            perfil = form.save(commit=False)
+            perfil.user_id = request.user.id
+            #perfil.moto = "Moto Hardcodeada"
+            #form.save()
+            perfil.save()
             return redirect("bitacora:perfil_list")
-    else:  # if request.method == "GET":
+    else:
         form = forms.PerfilForm()
+        form.moto = "Moto Hardcodeada 2"
     return render(request, "bitacora/perfil_create.html", {"form": form})
 
