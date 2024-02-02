@@ -15,10 +15,13 @@ def pais_list(request):
 
 def viaje_list(request, id):
     #viajes = models.Viaje.objects.all()
-    perfil_viaje = models.Perfil.objects.get(id=id)
-    #perfil_viaje = models.Perfil.objects.filter(user_id=request.user.id)
-    viajes = models.Viaje.objects.filter(perfil_id=perfil_viaje.id)
-    #viajes = models.Viaje.objects.filter(perfil_id=1)
+    perfil_viaje = False
+    viajes = ""
+    if models.Perfil.objects.filter(id=id).exists():
+        perfil_viaje = models.Perfil.objects.get(id=id)
+        #perfil_viaje = models.Perfil.objects.filter(user_id=request.user.id)
+        viajes = models.Viaje.objects.filter(perfil_id=perfil_viaje.id)
+        #viajes = models.Viaje.objects.filter(perfil_id=1)
     context = {"viajes": viajes}
     return render(request, "bitacora/viaje_list.html", context)
 
