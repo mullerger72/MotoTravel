@@ -23,6 +23,7 @@
                     {% else %}
                         <td>Sin registro</td>
                     {% endif %}
+                    <td> <a href="{% url 'bitacora:perfil_borrar' perfil.id %}">Borrar</a> </td>
                 </tr>
             {% endfor %}
 

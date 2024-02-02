@@ -2,8 +2,9 @@
 
 
 {% block content %}
-    <h2>PERFIL</h2>
-    <h3>Perfil: Crear</h3>
+    <h2>MI PERFIL</h2>
+    <h3>Edita tus datos</h3>
+    <h4>Con Guardar podés confirmar los cambios</h4>
 
     <form method="post">
         {% csrf_token %}
@@ -12,6 +13,6 @@
         <button type="submit">Guardar</button>
     </form>
 
-    <button><a href="{% url 'bitacora:index' %}">Atrás</a></button>    
+    <button><a href="{% url 'bitacora:index' %}">Cancelar</a></button>    
 
 {% endblock content %}

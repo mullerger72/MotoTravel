@@ -10,7 +10,7 @@ class PerfilForm(forms.ModelForm):
         fields = "__all__"
         widgets = {
             'user': forms.TextInput(attrs={'type': 'hidden'}),
-            'nombre': forms.TextInput(attrs={'value': 'Nombre Hardcodeado'}),
+#            'nombre': forms.TextInput(attrs={'value': 'Nombre Hardcodeado'}),
         }
 
 
@@ -18,3 +18,6 @@ class ViajeForm(forms.ModelForm):
     class Meta:
         model = models.Viaje
         fields = "__all__"
+        widgets = {
+            'perfil': forms.TextInput(attrs={'type': 'hidden'}),
+        }
