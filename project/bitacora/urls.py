@@ -10,6 +10,6 @@ urlpatterns = [
     path("perfil/list", views.perfil_list, name="perfil_list"),
     path("perfil/create/<int:id>/", views.perfil_create, name="perfil_create"),
     path("viaje/list/<int:id>/", views.viaje_list, name="viaje_list"),
-    path("viaje/create", views.viaje_create, name="viaje_create"),
+    path("viaje/create/<int:id>/", views.viaje_create, name="viaje_create"),
     path("perfil/borrar/<int:id>/", views.perfil_borrar, name="perfil_borrar"),
 ]
