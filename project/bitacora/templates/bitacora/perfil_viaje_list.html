@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+
+
+{% block content %}
+    <h2>VIAJES PERFILES</h2>
+
+    {% autoescape off %}
+    {{ viajes }}
+    {% endautoescape %}
+
+    <button><a href="{% url 'bitacora:index' %}">Atrás</a></button>    
+{% endblock content %}

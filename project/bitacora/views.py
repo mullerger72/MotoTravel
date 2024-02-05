@@ -86,3 +86,100 @@ def perfil_borrar(request, id):
     perfil = models.Perfil.objects.get(id=id)
     perfil.delete()
     return redirect("bitacora:perfil_list")
+
+
+def viaje_editar(request, id):
+    viaje_update = models.Viaje.objects.get(id=id)
+    perfil_viaje = models.Perfil.objects.get(id=viaje_update.perfil_id)
+
+    if request.method == "POST":
+        form = forms.ViajeForm(request.POST, instance=viaje_update)
+        
+        if form.is_valid():
+            viaje = form.save(commit=False)
+            viaje.save()
+            return viaje_list(request, perfil_viaje.user_id)
+    else:
+        form = forms.ViajeForm(instance=viaje_update)
+        return render(request, "bitacora/viaje_edit.html", {"form": form})
+
+    return viaje_list(request, perfil_viaje.user_id)
+
+
+def viaje_borrar(request, id):
+    viaje_update = models.Viaje.objects.get(id=id)
+    perfil_viaje = models.Perfil.objects.get(id=viaje_update.perfil_id)
+    viaje_update.delete()
+    return viaje_list(request, perfil_viaje.user_id)
+
+
+def viaje_etapa_create(request, id):
+    if request.method == "POST":
+        form = forms.Viaje_EtapaForm(request.POST)
+        if form.is_valid():
+            viaje_etapa = form.save(commit=False)
+            viaje_etapa.viaje_id = id
+            form.save()
+            #return redirect("bitacora:viaje_list")
+            return viaje_etapa_list(request, viaje_etapa.viaje_id)
+    else:
+        form = forms.Viaje_EtapaForm()
+    return render(request, "bitacora/viaje_etapa_create.html", {"form": form, "viaje_id": id})
+
+
+def viaje_etapa_editar(request, id):
+    viaje_etapa_update = models.Viaje_Etapa.objects.get(id=id)
+    #perfil_viaje = models.Perfil.objects.get(id=viaje_update.perfil_id)
+
+    if request.method == "POST":
+        form = forms.Viaje_EtapaForm(request.POST, instance=viaje_etapa_update)
+        
+        if form.is_valid():
+            viaje_etapa = form.save(commit=False)
+            viaje_etapa.save()
+            return viaje_etapa_list(request, viaje_etapa.viaje_id)
+    else:
+        form = forms.Viaje_EtapaForm(instance=viaje_etapa_update)
+        return render(request, "bitacora/viaje_etapa_edit.html", {"form": form})
+
+    return viaje_etapa_list(request, viaje_etapa_update.viaje_id)
+
+
+def viaje_etapa_list(request, id):
+    viaje_etapas = ""
+    #viaje_etapas = models.Viaje_Etapa.objects.get(viaje_id=id)
+    if models.Viaje_Etapa.objects.filter(viaje_id=id).exists():
+        viaje_etapas = models.Viaje_Etapa.objects.filter(viaje_id=id)
+    context = {"viaje_etapas": viaje_etapas, "viaje_id":id}
+    return render(request, "bitacora/viaje_etapa_list.html", context)
+
+
+def viaje_etapa_borrar(request, id):
+    viaje_etapa_update = models.Viaje_Etapa.objects.get(id=id)
+    viaje = models.Viaje.objects.get(id=viaje_etapa_update.viaje_id)
+    viaje_etapa_update.delete()
+    return viaje_etapa_list(request, viaje.id)
+
+def perfil_viaje_list(request, id):
+    perfil_viaje = False
+
+    viajes = ""
+    viaje_etapas = ""
+    html = "Viajes de un Perfil"
+    if models.Perfil.objects.filter(id=id).exists():
+        perfil_viaje = models.Perfil.objects.get(id=id)
+        if models.Viaje.objects.filter(perfil_id=perfil_viaje.id).exists():
+            html += "<div>" + perfil_viaje.apellido + "</div>"
+            viajes = ""
+            if models.Viaje.objects.filter(perfil_id=perfil_viaje.id).exists():
+                viajes = models.Viaje.objects.filter(perfil_id=perfil_viaje.id)
+                for viaje in viajes:
+                    html += "<div style='margin-left:10px'>" + viaje.localidad_ini + "-" + viaje.localidad_fin + "</div>"
+                    viaje_etapas = ""
+                    if models.Viaje_Etapa.objects.filter(viaje_id=viaje.id).exists():
+                        viaje_etapas = models.Viaje_Etapa.objects.filter(viaje_id=viaje.id)
+                        for viaje_etapa in viaje_etapas:
+                            html += "<div style='margin-left:20px'>" + viaje_etapa.localidad_ini + "-" + viaje_etapa.localidad_fin + "</div>"
+            
+    context = {"viajes": html}
+    return render(request, "bitacora/perfil_viaje_list.html", context)

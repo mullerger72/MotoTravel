@@ -25,6 +25,9 @@
                     <td>{{ viaje.localidad_fin }}</td>
                     <td>{{ viaje.km_recorridos }}</td>
                     <td>{{ viaje.comentarios }}</td>
+                    <td> <a href="{% url 'bitacora:viaje_editar' viaje.id %}">Editar</a> </td>
+                    <td> <a href="{% url 'bitacora:viaje_borrar' viaje.id %}">Borrar</a> </td>
+                    <td> <a href="{% url 'bitacora:viaje_etapa_list' viaje.id %}">Ver Etapas</a> </td>
                 </tr>
             {% endfor %}
 

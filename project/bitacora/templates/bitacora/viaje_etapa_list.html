@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+
+
+{% block content %}
+    <h2>VIAJE_ETAPA</h2>
+    <h3>Etapa: Lista</h3>
+
+    <table border="1">
+        <thead>
+            <th>Viaje   </th>
+            <th>Sentido   </th>
+            <th>Fecha Inicio   </th>
+            <th>Fecha Fin   </th>
+            <th>Loc. Inicio   </th>
+            <th>Loc. Destino   </th>
+            <th>Km Recorridos   </th>
+            <th>Comentarios</th>
+        </thead>
+        <tbody>
+            {% for viaje_etapa in viaje_etapas %}
+                <tr>
+                    <td>{{ viaje_etapa.viaje.localidad_ini }}, {{ viaje_etapa.viaje.localidad_fin }} - {{ viaje_etapa.viaje.km_recorridos }}</td>
+                    <td>{{ viaje_etapa.sentido }}</td>
+                    <td>{{ viaje_etapa.fecha_ini }}</td>
+                    <td>{{ viaje_etapa.fecha_fin }}</td>
+                    <td>{{ viaje_etapa.localidad_ini }}</td>
+                    <td>{{ viaje_etapa.localidad_fin }}</td>
+                    <td>{{ viaje_etapa.km_recorridos }}</td>
+                    <td>{{ viaje_etapa.comentarios }}</td>
+                    <td> <a href="{% url 'bitacora:viaje_etapa_editar' viaje_etapa.id %}">Editar</a> </td>
+                    <td> <a href="{% url 'bitacora:viaje_etapa_borrar' viaje_etapa.id %}">Borrar</a> </td>
+                </tr>
+            {% endfor %}
+        <tr>
+            <td> <a href="{% url 'bitacora:viaje_etapa_create' viaje_id %}">Agregar Etapa</a> </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <button><a href="{% url 'bitacora:index' %}">Atrás</a></button>    
+{% endblock content %}

@@ -23,7 +23,7 @@
                     {% else %}
                         <td>Sin registro</td>
                     {% endif %}
-                    <td> <a href="{% url 'bitacora:perfil_borrar' perfil.id %}">Borrar</a> </td>
+                    <td> <a href="{% url 'bitacora:perfil_viaje_list' perfil.id %}">Ver Viajes</a> </td>
                 </tr>
             {% endfor %}
 

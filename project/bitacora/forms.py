@@ -21,3 +21,11 @@ class ViajeForm(forms.ModelForm):
         widgets = {
             'perfil': forms.TextInput(attrs={'type': 'hidden'}),
         }
+
+class Viaje_EtapaForm(forms.ModelForm):
+    class Meta:
+        model = models.Viaje_Etapa
+        fields = "__all__"
+        widgets = {
+            'viaje': forms.TextInput(attrs={'type': 'hidden'}),
+        }
