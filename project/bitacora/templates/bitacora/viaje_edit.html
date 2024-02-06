@@ -3,6 +3,7 @@
 
 {% block content %}
     <h2>VIAJE</h2>
+    <h3>Guardar confirma los cambios</h3>
 
     <form method="post">
         {% csrf_token %}
@@ -10,6 +11,6 @@
         <button type="submit">Guardar</button>
     </form>
 
-    <button><a href="{% url 'bitacora:index' %}">Atrás</a></button>    
+    <button><a href="{% url 'bitacora:viaje_list' user.id %} ">Atrás</a></button>    
 
 {% endblock content %}

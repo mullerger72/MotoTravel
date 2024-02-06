@@ -140,7 +140,7 @@ def viaje_etapa_editar(request, id):
             return viaje_etapa_list(request, viaje_etapa.viaje_id)
     else:
         form = forms.Viaje_EtapaForm(instance=viaje_etapa_update)
-        return render(request, "bitacora/viaje_etapa_edit.html", {"form": form})
+        return render(request, "bitacora/viaje_etapa_edit.html", {"form": form, "viaje_id": viaje_etapa_update.viaje_id})
 
     return viaje_etapa_list(request, viaje_etapa_update.viaje_id)
 
@@ -165,21 +165,27 @@ def perfil_viaje_list(request, id):
 
     viajes = ""
     viaje_etapas = ""
-    html = "Viajes de un Perfil"
+    html = "Viajes del Perfil"
     if models.Perfil.objects.filter(id=id).exists():
         perfil_viaje = models.Perfil.objects.get(id=id)
         if models.Viaje.objects.filter(perfil_id=perfil_viaje.id).exists():
-            html += "<div>" + perfil_viaje.apellido + "</div>"
+            html += "<div> Datos del Perfil: " + perfil_viaje.apellido + ", " +  perfil_viaje.nombre + " - " + perfil_viaje.moto +  "</div>"
             viajes = ""
             if models.Viaje.objects.filter(perfil_id=perfil_viaje.id).exists():
                 viajes = models.Viaje.objects.filter(perfil_id=perfil_viaje.id)
+                nro_viaje = 0
                 for viaje in viajes:
-                    html += "<div style='margin-left:10px'>" + viaje.localidad_ini + "-" + viaje.localidad_fin + "</div>"
+                    nro_viaje += 1
+                    #html += "<div style='margin-left:0px'>" + "_" + "</div>"
+                    html += "<div style='margin-left:10px'> Viaje " + str(nro_viaje) + ": " + viaje.localidad_ini + "  -  " + viaje.localidad_fin + "</div>"
+                    html += "<div style='margin-left:10px'> _______ " + "  " + viaje.fecha_ini.strftime("%Y/%m/%d") + "  -  " + viaje.fecha_fin.strftime("%Y/%m/%d") + "  -  " + str(viaje.km_recorridos) + " Km" + "</div>"
                     viaje_etapas = ""
                     if models.Viaje_Etapa.objects.filter(viaje_id=viaje.id).exists():
                         viaje_etapas = models.Viaje_Etapa.objects.filter(viaje_id=viaje.id)
+                        nro_etapa = 0
                         for viaje_etapa in viaje_etapas:
-                            html += "<div style='margin-left:20px'>" + viaje_etapa.localidad_ini + "-" + viaje_etapa.localidad_fin + "</div>"
+                            nro_etapa += 1
+                            html += "<div style='margin-left:75px'> Etapa "+ str(nro_etapa) + "  " + viaje_etapa.fecha_ini.strftime("%Y/%m/%d") + "  -  " + viaje_etapa.fecha_fin.strftime("%Y/%m/%d")+ ": " + viaje_etapa.localidad_ini + "  -  " + viaje_etapa.localidad_fin + "  -  " +str(viaje_etapa.km_recorridos) + " Km" + "</div>"
             
     context = {"viajes": html}
     return render(request, "bitacora/perfil_viaje_list.html", context)

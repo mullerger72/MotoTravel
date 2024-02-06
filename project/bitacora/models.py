@@ -44,7 +44,7 @@ class Viaje(models.Model):
 
 class Viaje_Etapa(models.Model):
     viaje = models.ForeignKey(
-        Viaje, null=True, blank=True, on_delete=models.SET_NULL
+        Viaje, null=True, blank=True, on_delete=models.CASCADE
         )
     sentido = models.CharField(
         max_length=50, blank=True,

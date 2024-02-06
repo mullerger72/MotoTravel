@@ -2,11 +2,11 @@
 
 
 {% block content %}
-    <h2>VIAJES PERFILES</h2>
+    <h2>VIAJES</h2>
 
     {% autoescape off %}
     {{ viajes }}
     {% endautoescape %}
 
-    <button><a href="{% url 'bitacora:index' %}">Atrás</a></button>    
+    <button><a href="{% url 'bitacora:perfil_list' %}">Atrás</a></button>    
 {% endblock content %}

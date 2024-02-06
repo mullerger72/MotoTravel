@@ -2,7 +2,9 @@
 
 
 {% block content %}
-    <h2>ETAPA</h2>
+    <h2>VIAJES</h2>
+    <h3>Editar Etapa</h3>
+    <h4>Guardar confirma los cambios</h4>
 
     <form method="post">
         {% csrf_token %}
@@ -10,6 +12,6 @@
         <button type="submit">Guardar</button>
     </form>
 
-    <button><a href="{% url 'bitacora:index' %}">Atrás</a></button>    
+    <button><a href="{% url 'bitacora:viaje_etapa_list' viaje_id %}">Atrás</a></button>    
 
 {% endblock content %}

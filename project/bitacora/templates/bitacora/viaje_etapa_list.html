@@ -2,8 +2,8 @@
 
 
 {% block content %}
-    <h2>VIAJE_ETAPA</h2>
-    <h3>Etapa: Lista</h3>
+    <h2>VIAJES</h2>
+    <h3>Etapas del Viaje</h3>
 
     <table border="1">
         <thead>
@@ -37,5 +37,5 @@
         </tbody>
     </table>
 
-    <button><a href="{% url 'bitacora:index' %}">Atrás</a></button>    
+    <button><a href="{% url 'bitacora:viaje_list' user.id %} ">Atrás</a></button>    
 {% endblock content %}
