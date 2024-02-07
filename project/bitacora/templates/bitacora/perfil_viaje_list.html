@@ -8,5 +8,17 @@
     {{ viajes }}
     {% endautoescape %}
 
-    <button><a href="{% url 'bitacora:perfil_list' %}">Atrás</a></button>    
+    <!-- <button id="btn_imp"><a href="javascript:window.print()" class="btn btn-success" onclick="javascritp:imprimir()">Imprimir</a></button> -->
+    <button id="btn_imp"><a class="btn btn-success" onclick="javascript:imprimir()">Imprimir</a></button>
+    <button id="btn_atr"><a href="{% url 'bitacora:perfil_list' %}" class="btn btn-secondary">Atrás</a></button>    
+    <script>
+        function imprimir()
+            {
+                document.getElementById("btn_imp").style.visibility = "hidden"
+                document.getElementById("btn_atr").style.visibility = "hidden"
+                window.print()
+                document.getElementById("btn_imp").style.visibility = "visible"
+                document.getElementById("btn_atr").style.visibility = "visible"
+            }
+    </script>
 {% endblock content %}

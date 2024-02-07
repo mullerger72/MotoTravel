@@ -25,14 +25,14 @@
                     <td>{{ viaje.localidad_fin }}</td>
                     <td>{{ viaje.km_recorridos }}</td>
                     <td>{{ viaje.comentarios }}</td>
-                    <td> <a href="{% url 'bitacora:viaje_editar' viaje.id %}">Editar</a> </td>
-                    <td> <a href="{% url 'bitacora:viaje_borrar' viaje.id %}">Borrar</a> </td>
-                    <td> <a href="{% url 'bitacora:viaje_etapa_list' viaje.id %}">Ver Etapas</a> </td>
+                    <td> <a href="{% url 'bitacora:viaje_editar' viaje.id %}" class="btn btn-success">Editar</a> </td>
+                    <td> <a href="{% url 'bitacora:viaje_borrar' viaje.id %}" class="btn btn-danger">Borrar</a> </td>
+                    <td> <a href="{% url 'bitacora:viaje_etapa_list' viaje.id %}" class="btn btn-info">Etapas</a> </td>
                 </tr>
             {% endfor %}
 
         </tbody>
     </table>
 
-    <button><a href="{% url 'bitacora:index' %}">Atrás</a></button>    
+    <button><a href="{% url 'bitacora:index' %}" class="btn btn-secondary">Atrás</a></button>    
 {% endblock content %}

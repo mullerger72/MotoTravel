@@ -8,9 +8,9 @@
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Guardar</button>
+        <button type="submit" class="btn btn-success">Guardar</button>
     </form>
 
-    <button><a href="{% url 'bitacora:index' %}">Atrás</a></button>    
+    <button><a href="{% url 'bitacora:index' %}" class="btn btn-danger">Cancelar</a></button>    
 
 {% endblock content %}

@@ -23,12 +23,12 @@
                     {% else %}
                         <td>Sin registro</td>
                     {% endif %}
-                    <td> <a href="{% url 'bitacora:perfil_viaje_list' perfil.id %}">Ver Viajes</a> </td>
+                    <td> <a href="{% url 'bitacora:perfil_viaje_list' perfil.id %}" class="btn btn-info">Ver Viajes</a> </td>
                 </tr>
             {% endfor %}
 
         </tbody>
     </table>
 
-    <button><a href="{% url 'bitacora:index' %}">Atrás</a></button>    
+    <button><a href="{% url 'bitacora:index' %} " class="btn btn-secondary">Atrás</a></button>    
 {% endblock content %}
