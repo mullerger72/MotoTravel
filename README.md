@@ -17,6 +17,13 @@
 
  La información registrada en la App es compartida con los todos los usuarios de la App.
 
+# Links del Proyecto
+Link para descarga del Proyecto desde Github:
+ https://github.com/mullerger72/MotoTravel.git
+
+Link para descarga del Video explicativo:
+ https://drive.google.com/file/d/1Eih1xpZAySAZWTuDfh5NTGz5O0aZpZI4/view?usp=sharing
+
 # Como Descargar, instalar y Ejecutar la App "Bitácora" desde Visual Studio Code
 
  Iniciar Visual Studio Code
@@ -58,3 +65,5 @@ Debe moverse al path "project" y ejecutar:
 
 Por último, desde un navegador, ingresar a:
 http://127.0.0.1:8000/
+
+
