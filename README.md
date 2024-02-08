@@ -1,5 +1,13 @@
+# Proyecto Final Python - CODERHOUSE
+
+ Nombre del Proyecto: "MotoTravel"
+ Nombre de la App: "Bitácora"
+
+ Integrantes:
+    - Carreras Juan
+    - Müller Germán
+
 # Descripcion del Proyecto
- Bitácora:
 
  Bitácora es una App que permite al Usuario registrar unos pocos datos en su perfil y, a partir de allí, llevar un registro detallado de los
  viajes realizados en moto.
