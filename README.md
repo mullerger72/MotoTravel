@@ -11,16 +11,16 @@
 
 # Como Descargar, instalar y Ejecutar la App "Bitácora" desde Visual Studio Code
 
-Iniciar Visual Studio Code
-Ir a "Terminal"/"nueva termina"
+ Iniciar Visual Studio Code
+ Ir a "Terminal"/"nueva termina"
 
 # Para descargar el proyecto que contiene la App "Bitácora"
 
 En el caso que se requiera, ejecutar:
-git remote add origin https://github.com/mullerger72/MotoTravel.git
+ `git remote add origin https://github.com/mullerger72/MotoTravel.git`
 
 Modeverse a una carpeta vacía y ejecutar:
-git clone https://github.com/mullerger72/MotoTravel.git
+ `git clone https://github.com/mullerger72/MotoTravel.git`
 
 # Para abrir el proyecto que contiene la App "Bitácora"
 
@@ -37,17 +37,16 @@ Luego activar el entorno virtual:
  `source .venv/bin/activate` (Linux o Mac)
 
 A continuación se deben instalar los requerimientos con:
-pip install -r requirements.txt
+ `pip install -r requirements.txt`
 
 # Django
 # Instalación Django
 De ser necesario, ejecutar:
-- `pip install django`
+ `pip install django`
 
 # Para ejecutar la App "Bitácora"
-
-Luego, debe moverse al path "project" y ejecutar:
-python manage.py runserver
+Debe moverse al path "project" y ejecutar:
+ `python manage.py runserver`
 
 Por último, desde un navegador, ingresar a:
 http://127.0.0.1:8000/
