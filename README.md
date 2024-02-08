@@ -1,76 +1,53 @@
+# Descripcion del Proyecto.
+ Bitácora:
+
+ Bitácora es una App que permite al Usuario registrar unos pocos datos en su perfil y, a partir de allí, llevar un registro detallado de los
+ viajes realizados en moto.
+
+ Le permite al usuario registrar cada viaje realizado, in cluyendo las etapas que comprende cada viaje, detallado fecha, ciudades conectadas y km
+ recorridos en cada etapa y viaje, como así también una descripción o comentario de los datos más relevantes de cada etapa realizada.
+
+ La información registrada en la App es compartida con los todos los usuarios de la App.
+
+# Como Descargar, instalar y Ejecutar la App "Bitácora" desde Visual Studio Code
+
+Iniciar Visual Studio Code
+Ir a "Terminal"/"nueva termina"
+
+# Para descargar el proyecto que contiene la App "Bitácora"
+
+En el caso que se requiera, ejecutar:
+git remote add origin https://github.com/mullerger72/MotoTravel.git
+
+Modeverse a una carpeta vacía y ejecutar:
+git clone https://github.com/mullerger72/MotoTravel.git
+
+# Para abrir el proyecto que contiene la App "Bitácora"
+
+Abrir la Carpeta "MotoTravel"
+
+# Para configurar VSC
+
+Crear en el entorno virtual:
+ `python -m venv .venv` (Windows)
+ `python3 -m venv .venv` (Linux o Mac)
+
+Luego activar el entorno virtual:
+ `.\.venv\Scripts\activate`  (Windows Powershell)
+ `source .venv/bin/activate` (Linux o Mac)
+
+A continuación se deben instalar los requerimientos con:
+pip install -r requirements.txt
+
 # Django
-
-## Entornos virtuales
-
-Un entorno virtual en Python es una herramienta 
-que te permite crear un espacio aislado donde puedes instalar 
-y manejar las dependencias (bibliotecas y versiones de Python) 
-específicas para un proyecto en particular, sin afectar al sistema global
-
-- `pip list`: Muestra las bibliotecas instaladas en el entorno virtual o global
-
-¿Cómo crear un entorno virtual? (entorno aislado del global)
-
-- `python -m venv .venv` (Windows)
-- `python3 -m venv .venv` (Linux o Mac)
-
-¿Cómo activar el entorno virtual?
-- `.\.venv\Scripts\activate`  (Windows Powershell)
-- `source .venv/bin/activate` (Linux o Mac)
-
-¿Cómo crear requirements.txt?
-- `pip freeze >> requirements.txt`
-
-¿Cómo instalar paquetes desde requirements.txt?
-- `pip install -r requirements.txt`
-
-## Instalación Django
-
+# Instalación Django
+De ser necesario, ejecutar:
 - `pip install django`
 
-## Crear un proyecto
-    
-1. Crear una carpeta para el proyecto en la raiz:
-    - `md project`
+# Para ejecutar la App "Bitácora"
 
-2. Acceder a la carpeta `project`
-    - `cd project`
+Luego, debe moverse al path "project" y ejecutar:
+python manage.py runserver
 
-3. Crear las carpetas y archivos necesarios
-    - `django-admin startproject config .`
-
-4. Ejecutar el servidor:
-    - `python manage.py runserver`
-
-
-## Establecer `config.settings.SECRET_KEY`
-
-```py
-from django.core.management.utils import get_random_secret_key
-
-SECRET_KEY = get_random_secret_key()
-```
-
-## Crear una aplicación:
-
-1. Estar ubicado dentro de `project` pero fuera de `config`
-    
-2. Crear la aplicación Django con el nombre que desee
-    - `django-admin startapp core`
-
-3. Agregar el nombre de la app en lista `config.settings.INSTALLED_APPS`
-
-
-## Crear base de datos
-
-Crear archivos Python pre-SQL:
-
-- `python manage.py makemigrations`
-
-Crear SQL y modificar base de datos:
-
-- `python manage.py migrate`
-
-## Crear superusuario
-
-- `python manage.py createsuperuser`
+Por último, desde un navegador, ingresar a:
+http://127.0.0.1:8000/
