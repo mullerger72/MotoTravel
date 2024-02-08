@@ -1,11 +1,11 @@
-# Descripcion del Proyecto.
+# Descripcion del Proyecto
  Bitácora:
 
  Bitácora es una App que permite al Usuario registrar unos pocos datos en su perfil y, a partir de allí, llevar un registro detallado de los
  viajes realizados en moto.
 
- Le permite al usuario registrar cada viaje realizado, in cluyendo las etapas que comprende cada viaje, detallado fecha, ciudades conectadas y km
- recorridos en cada etapa y viaje, como así también una descripción o comentario de los datos más relevantes de cada etapa realizada.
+ Le permite al usuario registrar cada viaje realizado, incluyendo las etapas que comprende cada viaje, detallado fecha, ciudades conectadas y km
+ recorridos en cada viaje y sus etapas, como así también una descripción o comentario de los datos u eventos más relevantes de cada una de las etapas.
 
  La información registrada en la App es compartida con los todos los usuarios de la App.
 
@@ -28,11 +28,11 @@ Abrir la Carpeta "MotoTravel"
 
 # Para configurar VSC
 
-Crear en el entorno virtual:
+Crear el entorno virtual:
  `python -m venv .venv` (Windows)
  `python3 -m venv .venv` (Linux o Mac)
 
-Luego activar el entorno virtual:
+y activar el entorno virtual:
  `.\.venv\Scripts\activate`  (Windows Powershell)
  `source .venv/bin/activate` (Linux o Mac)
 
